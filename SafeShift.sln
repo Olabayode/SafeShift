@@ -5,6 +5,12 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SafeShift", "SafeShift\SafeShift.csproj", "{E6F32917-CB45-4436-9302-BCFCC66A71B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SafeShift.BLL", "SafeShift.BLL\SafeShift.BLL.csproj", "{2D4465B6-E730-466C-A3D6-D674F2595515}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SafeShift.DAL", "SafeShift.DAL\SafeShift.DAL.csproj", "{8F44003E-5C35-4BC5-AF4B-D9FD2B299390}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SafeShift.Models", "SafeShift.Models\SafeShift.Models.csproj", "{9134EBF3-8705-432C-945F-60BDCF19A915}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +24,17 @@ Global
 		{E6F32917-CB45-4436-9302-BCFCC66A71B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6F32917-CB45-4436-9302-BCFCC66A71B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6F32917-CB45-4436-9302-BCFCC66A71B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D4465B6-E730-466C-A3D6-D674F2595515}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D4465B6-E730-466C-A3D6-D674F2595515}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D4465B6-E730-466C-A3D6-D674F2595515}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D4465B6-E730-466C-A3D6-D674F2595515}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F44003E-5C35-4BC5-AF4B-D9FD2B299390}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F44003E-5C35-4BC5-AF4B-D9FD2B299390}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F44003E-5C35-4BC5-AF4B-D9FD2B299390}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F44003E-5C35-4BC5-AF4B-D9FD2B299390}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9134EBF3-8705-432C-945F-60BDCF19A915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9134EBF3-8705-432C-945F-60BDCF19A915}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9134EBF3-8705-432C-945F-60BDCF19A915}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9134EBF3-8705-432C-945F-60BDCF19A915}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

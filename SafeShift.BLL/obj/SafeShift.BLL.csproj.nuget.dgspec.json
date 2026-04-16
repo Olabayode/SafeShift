@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "/Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift/SafeShift.csproj": {}
+    "/Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift.BLL/SafeShift.BLL.csproj": {}
   },
   "projects": {
     "/Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift.BLL/SafeShift.BLL.csproj": {
@@ -184,88 +184,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.416/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "/Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift/SafeShift.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift/SafeShift.csproj",
-        "projectName": "SafeShift",
-        "projectPath": "/Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift/SafeShift.csproj",
-        "packagesPath": "/Users/emmanuelolu/.nuget/packages/",
-        "outputPath": "/Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/Users/emmanuelolu/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net8.0"
-        ],
-        "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
-            "projectReferences": {
-              "/Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift.BLL/SafeShift.BLL.csproj": {
-                "projectPath": "/Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift.BLL/SafeShift.BLL.csproj"
-              },
-              "/Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift.DAL/SafeShift.DAL.csproj": {
-                "projectPath": "/Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift.DAL/SafeShift.DAL.csproj"
-              },
-              "/Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift.Models/SafeShift.Models.csproj": {
-                "projectPath": "/Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift.Models/SafeShift.Models.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        }
-      },
-      "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.OpenApi": {
-              "target": "Package",
-              "version": "[8.0.22, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.6.2, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

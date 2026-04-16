@@ -11,4 +11,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SafeShift.BLL\SafeShift.BLL.csproj" />
+    <ProjectReference Include="..\SafeShift.DAL\SafeShift.DAL.csproj" />
+    <ProjectReference Include="..\SafeShift.Models\SafeShift.Models.csproj" />
+  </ItemGroup>
+
 </Project>

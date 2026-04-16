@@ -107,6 +107,43 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "SafeShift.BLL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "SafeShift.DAL": "1.0.0",
+          "SafeShift.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SafeShift.BLL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SafeShift.BLL.dll": {}
+        }
+      },
+      "SafeShift.DAL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "SafeShift.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SafeShift.DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SafeShift.DAL.dll": {}
+        }
+      },
+      "SafeShift.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/SafeShift.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SafeShift.Models.dll": {}
+        }
       }
     }
   },
@@ -473,11 +510,29 @@
         "swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "SafeShift.BLL/1.0.0": {
+      "type": "project",
+      "path": "../SafeShift.BLL/SafeShift.BLL.csproj",
+      "msbuildProject": "../SafeShift.BLL/SafeShift.BLL.csproj"
+    },
+    "SafeShift.DAL/1.0.0": {
+      "type": "project",
+      "path": "../SafeShift.DAL/SafeShift.DAL.csproj",
+      "msbuildProject": "../SafeShift.DAL/SafeShift.DAL.csproj"
+    },
+    "SafeShift.Models/1.0.0": {
+      "type": "project",
+      "path": "../SafeShift.Models/SafeShift.Models.csproj",
+      "msbuildProject": "../SafeShift.Models/SafeShift.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.AspNetCore.OpenApi >= 8.0.22",
+      "SafeShift.BLL >= 1.0.0",
+      "SafeShift.DAL >= 1.0.0",
+      "SafeShift.Models >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
   },
@@ -506,7 +561,17 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift.BLL/SafeShift.BLL.csproj": {
+              "projectPath": "/Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift.BLL/SafeShift.BLL.csproj"
+            },
+            "/Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift.DAL/SafeShift.DAL.csproj": {
+              "projectPath": "/Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift.DAL/SafeShift.DAL.csproj"
+            },
+            "/Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift.Models/SafeShift.Models.csproj": {
+              "projectPath": "/Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift.Models/SafeShift.Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
