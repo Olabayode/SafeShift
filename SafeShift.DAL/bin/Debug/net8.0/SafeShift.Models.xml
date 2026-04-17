@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SafeShift.Models</name>
+    </assembly>
+    <members>
+        <member name="T:SafeShift.Models.DTOs.Auth.AuthResponseDto">
+            <summary>
+            Standard response returned by register and login endpoints.
+            </summary>
+        </member>
+        <member name="P:SafeShift.Models.DTOs.Auth.AuthResponseDto.Success">
+            <summary>
+            Indicates whether the request succeeded.
+            </summary>
+        </member>
+        <member name="P:SafeShift.Models.DTOs.Auth.AuthResponseDto.Message">
+            <summary>
+            Human-readable outcome message.
+            </summary>
+        </member>
+        <member name="P:SafeShift.Models.DTOs.Auth.AuthResponseDto.UserId">
+            <summary>
+            User identifier when auth succeeds.
+            </summary>
+        </member>
+        <member name="P:SafeShift.Models.DTOs.Auth.AuthResponseDto.Email">
+            <summary>
+            User email when auth succeeds.
+            </summary>
+        </member>
+        <member name="P:SafeShift.Models.DTOs.Auth.AuthResponseDto.Role">
+            <summary>
+            User role when auth succeeds.
+            </summary>
+        </member>
+        <member name="T:SafeShift.Models.DTOs.Auth.LoginDto">
+            <summary>
+            Request body used to log in an existing user.
+            </summary>
+        </member>
+        <member name="P:SafeShift.Models.DTOs.Auth.LoginDto.Email">
+            <summary>
+            Registered email address.
+            </summary>
+        </member>
+        <member name="P:SafeShift.Models.DTOs.Auth.LoginDto.Password">
+            <summary>
+            Plain-text password to validate.
+            </summary>
+        </member>
+        <member name="T:SafeShift.Models.DTOs.Auth.RegisterUserDto">
+            <summary>
+            Request body used to register a new user.
+            </summary>
+        </member>
+        <member name="P:SafeShift.Models.DTOs.Auth.RegisterUserDto.Name">
+            <summary>
+            Full name of the user being registered.
+            </summary>
+        </member>
+        <member name="P:SafeShift.Models.DTOs.Auth.RegisterUserDto.Email">
+            <summary>
+            Unique email used for registration and login.
+            </summary>
+        </member>
+        <member name="P:SafeShift.Models.DTOs.Auth.RegisterUserDto.Password">
+            <summary>
+            Plain-text password supplied during registration.
+            </summary>
+        </member>
+        <member name="P:SafeShift.Models.DTOs.Auth.RegisterUserDto.Role">
+            <summary>
+            Application role assigned to the user.
+            </summary>
+        </member>
+    </members>
+</doc>

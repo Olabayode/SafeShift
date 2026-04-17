@@ -10,3 +10,5 @@
 /Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift.Models/obj/Debug/net8.0/refint/SafeShift.Models.dll
 /Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift.Models/obj/Debug/net8.0/SafeShift.Models.pdb
 /Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift.Models/obj/Debug/net8.0/ref/SafeShift.Models.dll
+/Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift.Models/bin/Debug/net8.0/SafeShift.Models.xml
+/Users/emmanuelolu/backend/sd-340 - Advanced C#/Assignment/SafeShift/SafeShift.Models/obj/Debug/net8.0/SafeShift.Models.xml

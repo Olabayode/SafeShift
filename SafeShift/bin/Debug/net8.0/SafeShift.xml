@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SafeShift</name>
+    </assembly>
+    <members>
+        <member name="M:SafeShift.Controllers.AuthController.Register(SafeShift.Models.DTOs.Auth.RegisterUserDto)">
+            <summary>
+            Registers a new user account.
+            </summary>
+            <remarks>
+            The email must be unique. Passwords are hashed before being stored.
+            </remarks>
+        </member>
+        <member name="M:SafeShift.Controllers.AuthController.Login(SafeShift.Models.DTOs.Auth.LoginDto)">
+            <summary>
+            Logs in an existing user.
+            </summary>
+            <remarks>
+            Login succeeds only when the supplied email and password match a stored user.
+            </remarks>
+        </member>
+        <member name="M:SafeShift.Controllers.IncidentsController.GetAllIncidents(System.String,System.Nullable{System.Int32},System.Nullable{System.DateTime})">
+            <summary>
+            Returns incidents with optional severity, user, and date filters.
+            </summary>
+        </member>
+        <member name="M:SafeShift.Controllers.IncidentsController.CreateIncident(SafeShift.Models.DTOs.Incidents.IncidentCreateDto)">
+            <summary>
+            Creates a new incident record.
+            </summary>
+        </member>
+        <member name="M:SafeShift.Controllers.IncidentsController.GetIncidentById(System.Int32)">
+            <summary>
+            Returns a single incident by identifier.
+            </summary>
+        </member>
+        <member name="M:SafeShift.Controllers.IncidentsController.UpdateIncident(System.Int32,SafeShift.Models.DTOs.Incidents.IncidentUpdateDto)">
+            <summary>
+            Updates an existing incident record.
+            </summary>
+        </member>
+        <member name="M:SafeShift.Controllers.IncidentsController.DeleteIncident(System.Int32)">
+            <summary>
+            Deletes an incident by identifier.
+            </summary>
+        </member>
+        <member name="M:SafeShift.Controllers.InspectionsController.GetAllInspections(System.Nullable{System.DateTime})">
+            <summary>
+            Returns inspections with an optional date filter.
+            </summary>
+        </member>
+        <member name="M:SafeShift.Controllers.InspectionsController.GetInspectionById(System.Int32)">
+            <summary>
+            Returns a single inspection by identifier.
+            </summary>
+        </member>
+        <member name="M:SafeShift.Controllers.InspectionsController.CreateInspection(SafeShift.Models.DTOs.Inspections.InspectionCreateDto)">
+            <summary>
+            Creates a new inspection record.
+            </summary>
+        </member>
+        <member name="M:SafeShift.Controllers.InspectionsController.UpdateInspection(System.Int32,SafeShift.Models.DTOs.Inspections.InspectionUpdateDto)">
+            <summary>
+            Updates an existing inspection record.
+            </summary>
+        </member>
+        <member name="M:SafeShift.Controllers.InspectionsController.DeleteInspection(System.Int32)">
+            <summary>
+            Deletes an inspection by identifier.
+            </summary>
+        </member>
+        <member name="M:SafeShift.Controllers.ShiftsController.GetAllShifts(System.Nullable{System.Int32},System.Nullable{System.DateTime})">
+            <summary>
+            Returns shifts with optional user and date filters.
+            </summary>
+        </member>
+        <member name="M:SafeShift.Controllers.ShiftsController.GetShiftById(System.Int32)">
+            <summary>
+            Returns a single shift by identifier.
+            </summary>
+        </member>
+        <member name="M:SafeShift.Controllers.ShiftsController.CreateShift(SafeShift.Models.DTOs.Shifts.ShiftCreateDto)">
+            <summary>
+            Creates a new shift record.
+            </summary>
+        </member>
+        <member name="M:SafeShift.Controllers.ShiftsController.UpdateShift(System.Int32,SafeShift.Models.DTOs.Shifts.ShiftUpdateDto)">
+            <summary>
+            Updates an existing shift record.
+            </summary>
+        </member>
+        <member name="M:SafeShift.Controllers.ShiftsController.DeleteShift(System.Int32)">
+            <summary>
+            Deletes a shift by identifier.
+            </summary>
+        </member>
+        <member name="M:SafeShift.Controllers.UsersController.GetAllUsers">
+            <summary>
+            Returns all users.
+            </summary>
+        </member>
+        <member name="M:SafeShift.Controllers.UsersController.GetUserById(System.Int32)">
+            <summary>
+            Returns a single user by identifier.
+            </summary>
+        </member>
+        <member name="M:SafeShift.Controllers.UsersController.DeleteUser(System.Int32)">
+            <summary>
+            Deletes a user by identifier.
+            </summary>
+        </member>
+    </members>
+</doc>

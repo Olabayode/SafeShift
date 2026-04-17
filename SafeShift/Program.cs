@@ -6,6 +6,7 @@ using SafeShift.BLL.Services.Interfaces;
 using SafeShift.DAL.Data;
 using SafeShift.DAL.Repositories;
 using SafeShift.DAL.Repositories.Interfaces;
+using SafeShift.Swagger;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,8 +20,23 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Title = "SafeShift API",
-        Version = "v1"
+        Version = "v1",
+        Description = "Workplace Safety and Incident Management Web API for authentication, incidents, inspections, shifts, and users."
     });
+
+    var apiXmlPath = Path.Combine(AppContext.BaseDirectory, "SafeShift.xml");
+    if (File.Exists(apiXmlPath))
+    {
+        options.IncludeXmlComments(apiXmlPath);
+    }
+
+    var modelsXmlPath = Path.Combine(AppContext.BaseDirectory, "SafeShift.Models.xml");
+    if (File.Exists(modelsXmlPath))
+    {
+        options.IncludeXmlComments(modelsXmlPath);
+    }
+
+    options.OperationFilter<AuthExamplesOperationFilter>();
 });
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -49,4 +65,3 @@ app.UseHttpsRedirection();
 app.MapControllers();
 
 app.Run();
-
