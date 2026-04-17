@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SafeShift.DAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0f70e091e934bb93f37c1786055feb29f8639c4d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5214e563da738daed83361d2d7e0ee88e3d3958c")]
 [assembly: System.Reflection.AssemblyProductAttribute("SafeShift.DAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SafeShift.DAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

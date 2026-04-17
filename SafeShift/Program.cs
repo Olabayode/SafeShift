@@ -4,7 +4,11 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using SafeShift.BLL.Services;
+using SafeShift.BLL.Services.Interfaces;
 using SafeShift.DAL.Data;
+using SafeShift.DAL.Repositories;
+using SafeShift.DAL.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 var jwtSettings = builder.Configuration.GetSection("Jwt");
@@ -65,11 +69,16 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
-// Register application services here.
-// Example: builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IIncidentService, IncidentService>();
+builder.Services.AddScoped<IInspectionService, InspectionService>();
+builder.Services.AddScoped<IShiftService, ShiftService>();
 
-// Register repositories here.
-// Example: builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IIncidentRepository, IncidentRepository>();
+builder.Services.AddScoped<IInspectionRepository, InspectionRepository>();
+builder.Services.AddScoped<IShiftRepository, ShiftRepository>();
 
 var app = builder.Build();
 

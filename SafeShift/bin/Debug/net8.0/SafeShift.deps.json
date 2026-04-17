@@ -978,8 +978,11 @@
       },
       "SafeShift.BLL/1.0.0": {
         "dependencies": {
+          "AutoMapper": "12.0.1",
+          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
           "SafeShift.DAL": "1.0.0",
-          "SafeShift.Models": "1.0.0"
+          "SafeShift.Models": "1.0.0",
+          "System.IdentityModel.Tokens.Jwt": "7.1.2"
         },
         "runtime": {
           "SafeShift.BLL.dll": {
