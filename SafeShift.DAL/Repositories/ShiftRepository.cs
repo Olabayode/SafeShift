@@ -14,12 +14,27 @@ public class ShiftRepository : IShiftRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<Shift>> GetAllAsync()
+    public async Task<IEnumerable<Shift>> GetAllAsync(int? userId = null, DateTime? date = null)
     {
-        return await _context.Shifts
+        var query = _context.Shifts
             .AsNoTracking()
             .Include(shift => shift.User)
-            .ToListAsync();
+            .AsQueryable();
+
+        if (userId.HasValue)
+        {
+            query = query.Where(shift => shift.UserId == userId.Value);
+        }
+
+        if (date.HasValue)
+        {
+            var targetDate = date.Value.Date;
+            query = query.Where(shift =>
+                shift.StartTime.Date == targetDate ||
+                shift.EndTime.Date == targetDate);
+        }
+
+        return await query.ToListAsync();
     }
 
     public async Task<Shift?> GetByIdAsync(int shiftId)

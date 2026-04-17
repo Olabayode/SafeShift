@@ -14,12 +14,20 @@ public class InspectionRepository : IInspectionRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<Inspection>> GetAllAsync()
+    public async Task<IEnumerable<Inspection>> GetAllAsync(DateTime? date = null)
     {
-        return await _context.Inspections
+        var query = _context.Inspections
             .AsNoTracking()
             .Include(inspection => inspection.User)
-            .ToListAsync();
+            .AsQueryable();
+
+        if (date.HasValue)
+        {
+            var targetDate = date.Value.Date;
+            query = query.Where(inspection => inspection.Date.Date == targetDate);
+        }
+
+        return await query.ToListAsync();
     }
 
     public async Task<Inspection?> GetByIdAsync(int inspectionId)

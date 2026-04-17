@@ -22,9 +22,9 @@ public class InspectionService : IInspectionService
         _mapper = mapper;
     }
 
-    public async Task<IEnumerable<InspectionReadDto>> GetAllAsync()
+    public async Task<IEnumerable<InspectionReadDto>> GetAllAsync(DateTime? date = null)
     {
-        var inspections = await _inspectionRepository.GetAllAsync();
+        var inspections = await _inspectionRepository.GetAllAsync(date);
 
         return _mapper.Map<IEnumerable<InspectionReadDto>>(inspections);
     }

@@ -22,9 +22,9 @@ public class IncidentService : IIncidentService
         _mapper = mapper;
     }
 
-    public async Task<IEnumerable<IncidentReadDto>> GetAllAsync()
+    public async Task<IEnumerable<IncidentReadDto>> GetAllAsync(string? severity = null, int? userId = null, DateTime? date = null)
     {
-        var incidents = await _incidentRepository.GetAllAsync();
+        var incidents = await _incidentRepository.GetAllAsync(severity, userId, date);
 
         return _mapper.Map<IEnumerable<IncidentReadDto>>(incidents);
     }

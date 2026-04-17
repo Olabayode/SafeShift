@@ -22,9 +22,9 @@ public class ShiftService : IShiftService
         _mapper = mapper;
     }
 
-    public async Task<IEnumerable<ShiftReadDto>> GetAllAsync()
+    public async Task<IEnumerable<ShiftReadDto>> GetAllAsync(int? userId = null, DateTime? date = null)
     {
-        var shifts = await _shiftRepository.GetAllAsync();
+        var shifts = await _shiftRepository.GetAllAsync(userId, date);
 
         return _mapper.Map<IEnumerable<ShiftReadDto>>(shifts);
     }

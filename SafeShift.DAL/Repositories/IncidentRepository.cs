@@ -14,12 +14,30 @@ public class IncidentRepository : IIncidentRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<Incident>> GetAllAsync()
+    public async Task<IEnumerable<Incident>> GetAllAsync(string? severity = null, int? userId = null, DateTime? date = null)
     {
-        return await _context.Incidents
+        var query = _context.Incidents
             .AsNoTracking()
             .Include(incident => incident.User)
-            .ToListAsync();
+            .AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(severity))
+        {
+            query = query.Where(incident => incident.Severity == severity);
+        }
+
+        if (userId.HasValue)
+        {
+            query = query.Where(incident => incident.UserId == userId.Value);
+        }
+
+        if (date.HasValue)
+        {
+            var targetDate = date.Value.Date;
+            query = query.Where(incident => incident.Date.Date == targetDate);
+        }
+
+        return await query.ToListAsync();
     }
 
     public async Task<Incident?> GetByIdAsync(int incidentId)

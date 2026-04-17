@@ -4,7 +4,7 @@ namespace SafeShift.BLL.Services.Interfaces;
 
 public interface IIncidentService
 {
-    Task<IEnumerable<IncidentReadDto>> GetAllAsync();
+    Task<IEnumerable<IncidentReadDto>> GetAllAsync(string? severity = null, int? userId = null, DateTime? date = null);
     Task<IncidentReadDto?> GetByIdAsync(int incidentId);
     Task<IncidentReadDto> CreateAsync(IncidentCreateDto incidentCreateDto);
     Task<IncidentReadDto?> UpdateAsync(int incidentId, IncidentUpdateDto incidentUpdateDto);

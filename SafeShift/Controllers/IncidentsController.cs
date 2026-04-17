@@ -15,6 +15,17 @@ public class IncidentsController : ControllerBase
         _incidentService = incidentService;
     }
 
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<IncidentReadDto>>> GetAllIncidents(
+        [FromQuery] string? severity,
+        [FromQuery] int? userId,
+        [FromQuery] DateTime? date)
+    {
+        var incidents = await _incidentService.GetAllAsync(severity, userId, date);
+
+        return Ok(incidents);
+    }
+
     [HttpPost]
     public async Task<ActionResult<IncidentReadDto>> CreateIncident(IncidentCreateDto incidentCreateDto)
     {
@@ -40,5 +51,36 @@ public class IncidentsController : ControllerBase
         }
 
         return Ok(incident);
+    }
+
+    [HttpPut("{incidentId:int}")]
+    public async Task<ActionResult<IncidentReadDto>> UpdateIncident(int incidentId, IncidentUpdateDto incidentUpdateDto)
+    {
+        try
+        {
+            var updatedIncident = await _incidentService.UpdateAsync(incidentId, incidentUpdateDto);
+            if (updatedIncident is null)
+            {
+                return NotFound();
+            }
+
+            return Ok(updatedIncident);
+        }
+        catch (KeyNotFoundException exception)
+        {
+            return NotFound(new { message = exception.Message });
+        }
+    }
+
+    [HttpDelete("{incidentId:int}")]
+    public async Task<IActionResult> DeleteIncident(int incidentId)
+    {
+        var deleted = await _incidentService.DeleteAsync(incidentId);
+        if (!deleted)
+        {
+            return NotFound();
+        }
+
+        return NoContent();
     }
 }

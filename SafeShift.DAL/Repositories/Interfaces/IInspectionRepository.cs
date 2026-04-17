@@ -4,7 +4,7 @@ namespace SafeShift.DAL.Repositories.Interfaces;
 
 public interface IInspectionRepository
 {
-    Task<IEnumerable<Inspection>> GetAllAsync();
+    Task<IEnumerable<Inspection>> GetAllAsync(DateTime? date = null);
     Task<Inspection?> GetByIdAsync(int inspectionId);
     Task<Inspection> AddAsync(Inspection inspection);
     Task<Inspection?> UpdateAsync(Inspection inspection);

@@ -1,9 +1,5 @@
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
 using SafeShift.BLL.Services.Interfaces;
 using SafeShift.DAL.Repositories.Interfaces;
 using SafeShift.Models;
@@ -14,12 +10,10 @@ namespace SafeShift.BLL.Services;
 public class AuthService : IAuthService
 {
     private readonly IUserRepository _userRepository;
-    private readonly IConfiguration _configuration;
 
-    public AuthService(IUserRepository userRepository, IConfiguration configuration)
+    public AuthService(IUserRepository userRepository)
     {
         _userRepository = userRepository;
-        _configuration = configuration;
     }
 
     public async Task<AuthResponseDto> RegisterAsync(RegisterUserDto registerUserDto)
@@ -27,7 +21,11 @@ public class AuthService : IAuthService
         var existingUser = await _userRepository.GetByEmailAsync(registerUserDto.Email);
         if (existingUser is not null)
         {
-            throw new InvalidOperationException("A user with this email already exists.");
+            return new AuthResponseDto
+            {
+                Success = false,
+                Message = "A user with this email already exists."
+            };
         }
 
         var user = new User
@@ -40,7 +38,7 @@ public class AuthService : IAuthService
 
         var createdUser = await _userRepository.AddAsync(user);
 
-        return CreateAuthResponse(createdUser);
+        return CreateAuthResponse(createdUser, "Registration successful.");
     }
 
     public async Task<AuthResponseDto?> LoginAsync(LoginDto loginDto)
@@ -48,55 +46,36 @@ public class AuthService : IAuthService
         var user = await _userRepository.GetByEmailAsync(loginDto.Email);
         if (user is null)
         {
-            return null;
+            return new AuthResponseDto
+            {
+                Success = false,
+                Message = "Invalid email or password."
+            };
         }
 
         var passwordHash = HashPassword(loginDto.Password);
         if (!string.Equals(user.PasswordHash, passwordHash, StringComparison.Ordinal))
         {
-            return null;
+            return new AuthResponseDto
+            {
+                Success = false,
+                Message = "Invalid email or password."
+            };
         }
 
-        return CreateAuthResponse(user);
+        return CreateAuthResponse(user, "Login successful.");
     }
 
-    private AuthResponseDto CreateAuthResponse(User user)
+    private static AuthResponseDto CreateAuthResponse(User user, string message)
     {
         return new AuthResponseDto
         {
-            Token = GenerateJwtToken(user),
+            Success = true,
+            Message = message,
+            UserId = user.UserId,
             Email = user.Email,
             Role = user.Role
         };
-    }
-
-    private string GenerateJwtToken(User user)
-    {
-        var jwtKey = _configuration["Jwt:Key"]
-            ?? throw new InvalidOperationException("JWT key is not configured.");
-        var jwtIssuer = _configuration["Jwt:Issuer"];
-        var jwtAudience = _configuration["Jwt:Audience"];
-        var expiryMinutes = int.TryParse(_configuration["Jwt:ExpiryMinutes"], out var value) ? value : 60;
-
-        var claims = new List<Claim>
-        {
-            new(JwtRegisteredClaimNames.Sub, user.UserId.ToString()),
-            new(JwtRegisteredClaimNames.Email, user.Email),
-            new(ClaimTypes.Role, user.Role),
-            new(ClaimTypes.Name, user.Name)
-        };
-
-        var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
-        var credentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256);
-
-        var token = new JwtSecurityToken(
-            issuer: jwtIssuer,
-            audience: jwtAudience,
-            claims: claims,
-            expires: DateTime.UtcNow.AddMinutes(expiryMinutes),
-            signingCredentials: credentials);
-
-        return new JwtSecurityTokenHandler().WriteToken(token);
     }
 
     private static string HashPassword(string password)
